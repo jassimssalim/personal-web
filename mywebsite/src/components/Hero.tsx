@@ -18,8 +18,8 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[700px] h-[700px] bg-violet-500/8 dark:bg-violet-500/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 -left-40 w-[450px] h-[450px] bg-purple-500/6 dark:bg-purple-500/4 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-700px h-700px bg-violet-500/8 dark:bg-violet-500/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 -left-40 w-450px h-450px bg-purple-500/6 dark:bg-purple-500/4 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-5xl mx-auto px-6 w-full">
@@ -32,7 +32,7 @@ export default function Hero() {
         {/* Name */}
         <h1 className="text-7xl sm:text-8xl lg:text-[96px] font-black leading-none tracking-tight mb-6 text-slate-900 dark:text-white">
           Jassim<br />
-          <span className="bg-gradient-to-r from-violet-600 to-purple-500 dark:from-violet-400 dark:to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-violet-600 to-purple-500 dark:from-violet-400 dark:to-purple-400 bg-clip-text text-transparent">
             S. Mohammed
           </span><br />
           Salim

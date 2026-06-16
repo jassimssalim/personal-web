@@ -85,7 +85,7 @@ export default function Experience() {
         <div className="w-10 h-1 bg-violet-600 dark:bg-violet-400 rounded-full mb-12" />
 
         <div className="relative pl-8">
-          <div className="absolute left-[5px] top-3 bottom-3 w-px bg-gradient-to-b from-violet-500 via-violet-300 to-slate-200 dark:via-violet-700 dark:to-slate-700" />
+          <div className="absolute left-1.25 top-3 bottom-3 w-px bg-linear-to-b from-violet-500 via-violet-300 to-slate-200 dark:via-violet-700 dark:to-slate-700" />
           <div className="flex flex-col gap-8">
             {experiences.map(exp => (
               <RoleCard key={exp.id} exp={exp} />
