@@ -10,7 +10,9 @@ interface NavbarProps {
 const links = [
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
   { href: '#skills', label: 'Skills' },
+  { href: '#certifications', label: 'Certifications' },
   { href: '#education', label: 'Education' },
 ]
 
@@ -35,12 +37,12 @@ export default function Navbar({ dark, onToggle }: NavbarProps) {
           {personal.initials}<span className="text-violet-600 dark:text-violet-400">.</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-1 list-none">
+        <ul className="hidden md:flex items-center gap-0.5 list-none">
           {links.map(link => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="px-3.5 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all no-underline"
+                className="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all no-underline"
               >
                 {link.label}
               </a>

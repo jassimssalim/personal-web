@@ -1,8 +1,8 @@
 const highlights = [
   { icon: '⚡', title: 'Full Stack', desc: 'Spring Boot + React/Next.js end-to-end' },
   { icon: '🏗️', title: 'Architecture', desc: 'Scalable system design & best practices' },
-  { icon: '🤖', title: 'AI Tools', desc: 'Analytics & automation solutions' },
-  { icon: '☁️', title: 'Cloud', desc: 'AWS & enterprise infrastructure' },
+  { icon: '🤖', title: 'AI & LLMs', desc: 'LLM integration, prompt engineering & AI-driven tools' },
+  { icon: '☁️', title: 'Cloud & DevOps', desc: 'AWS, Docker & enterprise infrastructure' },
 ]
 
 export default function About() {
@@ -16,7 +16,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            My career spans the full software lifecycle — RESTful API architecture, high-level system design, reactive frontend development, and CI/CD pipeline management. I've built enterprise platforms deep in the OutSystems ecosystem and transitioned seamlessly into modern Java and JavaScript stacks. Security is never an afterthought: I've led VAPT remediations and implemented Role-Based Access Control across production systems. I'm at my best when complexity meets a clean solution.
+            My career spans the full software lifecycle — RESTful API architecture, high-level system design, reactive frontend development, and CI/CD pipeline management. I've built enterprise platforms deep in the OutSystems ecosystem and transitioned seamlessly into modern Java and JavaScript stacks. I integrate Large Language Models into real workflows — from AI grading engines to analytics tools — and treat LLMs as practical development accelerators. Security is never an afterthought: I've led VAPT remediations and implemented Role-Based Access Control across production systems. I'm at my best when complexity meets a clean solution.
           </p>
 
           <div className="grid grid-cols-2 gap-3">

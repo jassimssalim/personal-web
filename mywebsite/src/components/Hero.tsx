@@ -1,6 +1,7 @@
-import { MapPin, Phone } from 'lucide-react'
-import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
+import { MapPin, Phone, Download } from 'lucide-react'
+import { FaGithub, FaLinkedinIn, FaRegEnvelopeOpen, FaEnvelope } from 'react-icons/fa'
 import { personal } from '../data'
+import resumeUrl from '../assets/resume/Mohammed Salim, Jassim S..pdf?url'
 
 const socials = [
   { href: personal.github, icon: FaGithub, label: 'GitHub', external: true },
@@ -10,14 +11,12 @@ const socials = [
 
 const stats = [
   { num: '5+', label: 'Years Experience' },
-  { num: '10+', label: 'Apps Delivered' },
-  { num: '1', label: 'Company' },
+  { num: '15+', label: 'Industry Apps Delivered' },
 ]
 
 export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-      {/* Soft gradient blobs behind particles */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-40 -right-40 w-[700px] h-[700px] bg-violet-500/8 dark:bg-violet-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 -left-40 w-[450px] h-[450px] bg-purple-500/6 dark:bg-purple-500/4 rounded-full blur-3xl" />
@@ -39,14 +38,14 @@ export default function Hero() {
           Salim
         </h1>
 
-        {/* Creative tagline — not just a job title */}
+        {/* Tagline */}
         <p className="text-lg font-medium text-slate-500 dark:text-slate-400 mb-5 tracking-wide">
-          Architecting enterprise software from API to UI
+          Engineering & delivering production software — from API to UI
         </p>
 
-        {/* Fresh summary — not copied from resume */}
+        {/* Summary */}
         <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl mb-8">
-          I design and ship production-grade software — robust Spring Boot APIs, seamless React and Next.js frontends, and AI-driven analytics tools that power real business decisions. Five years in, still building what scales.
+          I design and ship production-grade software — robust Spring Boot APIs, seamless React and Next.js frontends, OutSystems enterprise platforms, and AI-driven tools powered by LLMs that support real business decisions. Five years in, still building what scales.
         </p>
 
         {/* Meta */}
@@ -59,6 +58,10 @@ export default function Hero() {
             <Phone size={14} className="text-violet-500 dark:text-violet-400" />
             {personal.phone}
           </span>
+           <span className="flex items-center gap-1.5">
+            <FaRegEnvelopeOpen size={14} className="text-violet-500 dark:text-violet-400" />
+            {personal.email}
+          </span>
         </div>
 
         {/* CTAs */}
@@ -68,6 +71,14 @@ export default function Hero() {
             className="px-6 py-3 text-sm font-semibold bg-violet-600 hover:bg-violet-700 text-white rounded-xl transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/25 no-underline"
           >
             View Experience
+          </a>
+          <a
+            href={resumeUrl}
+            download="Jassim_Mohammed_Salim_Resume.pdf"
+            className="px-6 py-3 text-sm font-semibold border border-violet-300 dark:border-violet-600 text-violet-700 dark:text-violet-400 bg-violet-50 dark:bg-violet-500/10 rounded-xl hover:bg-violet-100 dark:hover:bg-violet-500/20 transition-all hover:-translate-y-0.5 no-underline flex items-center gap-2"
+          >
+            <Download size={15} />
+            Download CV
           </a>
           <a
             href={`mailto:${personal.email}`}
