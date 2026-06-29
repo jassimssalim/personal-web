@@ -10,7 +10,7 @@ const socials = [
 ]
 
 const stats = [
-  { num: '5+', label: 'Years Experience' },
+  { num: '5', label: 'Years Experience' },
   { num: '15+', label: 'Industry Apps Delivered' },
 ]
 
@@ -40,12 +40,12 @@ export default function Hero() {
 
         {/* Tagline */}
         <p className="text-base sm:text-lg font-medium text-slate-500 dark:text-slate-400 mb-4 sm:mb-5 tracking-wide">
-          Engineering & delivering production software — from API to UI
+          Full-stack software engineer delivering production systems from API to UI
         </p>
 
         {/* Summary */}
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-xl mb-6 sm:mb-8">
-          I design and ship production-grade software — robust Spring Boot APIs, seamless React and Next.js frontends, OutSystems enterprise platforms, and AI-driven tools powered by LLMs that support real business decisions. Five years in, still building what scales.
+          I design and ship production-grade software including robust Spring Boot APIs, React and Next.js frontends, OutSystems enterprise platforms, and AI-powered tools built on LLMs to drive real business outcomes. Five years of industry experience delivering scalable, maintainable systems.
         </p>
 
         {/* Meta */}

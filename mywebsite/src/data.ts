@@ -37,7 +37,7 @@ export const experiences: ExperienceEntry[] = [
     type: 'Full Stack Developer',
     period: 'July 2024 – Present',
     location: 'Ortigas, Pasig City, Philippines',
-    current: true,
+    current: false,
     projects: [
       {
         name: 'Loan Application – Local Bank',
@@ -138,6 +138,49 @@ export const personalProjects: PersonalProject[] = [
   },
 ]
 
+export const expertiseAreas = [
+  {
+    title: 'OutSystems Platform',
+    subtitle: 'Traditional, Reactive & Mobile',
+    years: 5,
+    level: 'Expert' as const,
+    icon: '🏢',
+    color: 'violet',
+  },
+  {
+    title: 'Java / Spring Boot',
+    subtitle: 'REST APIs & Backend Architecture',
+    years: 2,
+    level: 'Proficient' as const,
+    icon: '⚙️',
+    color: 'blue',
+  },
+  {
+    title: 'React / Next.js',
+    subtitle: 'Frontend & Full-Stack Web',
+    years: 2,
+    level: 'Proficient' as const,
+    icon: '⚛️',
+    color: 'cyan',
+  },
+  {
+    title: 'AI & LLM Integration',
+    subtitle: 'Agentic Engineering & AI-driven Tools',
+    years: 2,
+    level: 'Proficient' as const,
+    icon: '🤖',
+    color: 'emerald',
+  },
+  {
+    title: 'Cloud & Infrastructure',
+    subtitle: 'AWS, Docker & Enterprise DevOps',
+    years: 1,
+    level: 'Intermediate' as const,
+    icon: '☁️',
+    color: 'sky',
+  },
+]
+
 export const skillCategories = [
   {
     name: 'Languages',
@@ -152,12 +195,12 @@ export const skillCategories = [
     skills: ['MariaDB', 'OutSystems Traditional', 'OutSystems Reactive', 'OutSystems Mobile', 'OutSystems Forge'],
   },
   {
-    name: 'Tools & DevOps',
-    skills: ['AWS', 'Docker', 'Git', 'GitHub', 'Postman', 'Jira', 'DBeaver'],
+    name: 'CI/CD & Tools',
+    skills: ['GitHub Actions', 'Docker', 'AWS', 'Git', 'GitHub', 'Postman', 'Jira', 'DBeaver'],
   },
   {
     name: 'AI / LLMs',
-    skills: ['LLM Integration', 'Prompt Engineering', 'AI-assisted Development', 'OpenAI APIs', 'Anthropic Claude'],
+    skills: ['LLM Integration', 'Agentic AI Coding', 'n8n Automation', 'OpenAI APIs', 'Anthropic Claude'],
   },
 ]
 

@@ -1,7 +1,7 @@
 const highlights = [
   { icon: '⚡', title: 'Full Stack', desc: 'Spring Boot + React/Next.js end-to-end' },
   { icon: '🏗️', title: 'Architecture', desc: 'Scalable system design & best practices' },
-  { icon: '🤖', title: 'AI & LLMs', desc: 'LLM integration, prompt engineering & AI-driven tools' },
+  { icon: '🤖', title: 'AI & LLMs', desc: 'LLM integration, agentic coding & AI-driven tools' },
   { icon: '☁️', title: 'Cloud & DevOps', desc: 'AWS, Docker & enterprise infrastructure' },
 ]
 
@@ -16,7 +16,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <p className="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-            My career spans the full software lifecycle — RESTful API architecture, high-level system design, reactive frontend development, and CI/CD pipeline management. I've built enterprise platforms deep in the OutSystems ecosystem and transitioned seamlessly into modern Java and JavaScript stacks. I integrate Large Language Models into real workflows — from AI grading engines to analytics tools — and treat LLMs as practical development accelerators. Security is never an afterthought: I've led VAPT remediations and implemented Role-Based Access Control across production systems. I'm at my best when complexity meets a clean solution.
+            My career spans the full software lifecycle covering RESTful API architecture, high-level system design, and reactive frontend development. I have built and maintained enterprise platforms within the OutSystems ecosystem, where I led the identification and end-to-end remediation of a critical VAPT (Vulnerability Assessment and Penetration Testing) finding in a production environment. I have since expanded into modern Java and JavaScript stacks while keeping security foundational to every delivery. I leverage LLMs and agentic engineering workflows to accelerate development cycles, from automated grading engines to analytics dashboards, making AI a dependable accelerator at every stage of the engineering process. I also design and enforce Role-Based Access Control across production systems. I do my best work where complexity demands a precise, maintainable solution.
           </p>
 
           <div className="grid grid-cols-2 gap-3">
