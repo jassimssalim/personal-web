@@ -1,8 +1,8 @@
 export const personal = {
-  name: 'Jassim S. Mohammed Salim',
+  name: 'Jassim Mohammed Salim',
   firstName: 'Jassim',
   initials: 'JSM',
-  title: 'Full Stack Developer',
+  title: 'Application Developer',
   location: 'Bulacan, Philippines',
   email: 'jsmohammedsalim@gmail.com',
   phone: '(+639)055242652',
@@ -165,7 +165,7 @@ export const expertiseAreas = [
   },
   {
     title: 'AI & LLM Integration',
-    subtitle: 'Agentic Engineering & AI-driven Tools',
+    subtitle: 'Prompt Engineering, Agentic Workflows & AI-driven Tools',
     years: 2,
     level: 'Proficient' as const,
     icon: '🤖',
@@ -192,7 +192,7 @@ export const skillCategories = [
   },
   {
     name: 'Databases / Platforms',
-    skills: ['MariaDB', 'OutSystems Traditional', 'OutSystems Reactive', 'OutSystems Mobile', 'OutSystems Forge'],
+    skills: ['MariaDB', 'PostgreSQL', 'Supabase', 'OutSystems Traditional', 'OutSystems Reactive', 'OutSystems Mobile', 'OutSystems Forge'],
   },
   {
     name: 'CI/CD & Tools',
@@ -200,7 +200,7 @@ export const skillCategories = [
   },
   {
     name: 'AI / LLMs',
-    skills: ['LLM Integration', 'Agentic AI Coding', 'n8n Automation', 'OpenAI APIs', 'Anthropic Claude'],
+    skills: ['Prompt Engineering', 'Automations', 'LLM Integration', 'Agentic AI Coding', 'n8n Automation', 'OpenAI APIs', 'Anthropic Claude'],
   },
 ]
 

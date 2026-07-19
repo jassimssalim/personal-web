@@ -1,2 +1,91 @@
 @import "tailwindcss";
+
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* GitHub Primer palette — light */
+:root {
+  --gh-canvas: #ffffff;
+  --gh-canvas-subtle: #f6f8fa;
+  --gh-border: #d0d7de;
+  --gh-border-muted: #d8dee4;
+  --gh-fg: #1f2328;
+  --gh-fg-muted: #59636e;
+  --gh-accent: #0969da;
+  --gh-accent-subtle: #ddf4ff;
+  --gh-success: #1a7f37;
+  --gh-success-emphasis: #1f883d;
+  --gh-attention: #9a6700;
+  --gh-danger: #d1242f;
+  --gh-done: #8250df;
+  --gh-neutral-muted: rgba(175, 184, 193, 0.2);
+  --gh-tab-active: #fd8c73;
+  --gh-contrib-0: #ebedf0;
+  --gh-contrib-1: #9be9a8;
+  --gh-contrib-2: #40c463;
+  --gh-contrib-3: #30a14e;
+  --gh-contrib-4: #216e39;
+}
+
+/* GitHub Primer palette — dark */
+.dark {
+  --gh-canvas: #0d1117;
+  --gh-canvas-subtle: #161b22;
+  --gh-border: #30363d;
+  --gh-border-muted: #21262d;
+  --gh-fg: #e6edf3;
+  --gh-fg-muted: #8b949e;
+  --gh-accent: #58a6ff;
+  --gh-accent-subtle: rgba(56, 139, 253, 0.15);
+  --gh-success: #3fb950;
+  --gh-success-emphasis: #238636;
+  --gh-attention: #d29922;
+  --gh-danger: #f85149;
+  --gh-done: #a371f7;
+  --gh-neutral-muted: rgba(110, 118, 129, 0.25);
+  --gh-tab-active: #f78166;
+  --gh-contrib-0: #161b22;
+  --gh-contrib-1: #0e4429;
+  --gh-contrib-2: #006d32;
+  --gh-contrib-3: #26a641;
+  --gh-contrib-4: #39d353;
+}
+
+/* `inline` is required so utilities emit var(--gh-*) per element,
+   letting the .dark overrides above cascade into every token. */
+@theme inline {
+  --color-canvas: var(--gh-canvas);
+  --color-canvas-subtle: var(--gh-canvas-subtle);
+  --color-border-default: var(--gh-border);
+  --color-border-muted: var(--gh-border-muted);
+  --color-fg-default: var(--gh-fg);
+  --color-fg-muted: var(--gh-fg-muted);
+  --color-accent: var(--gh-accent);
+  --color-accent-subtle: var(--gh-accent-subtle);
+  --color-success: var(--gh-success);
+  --color-success-emphasis: var(--gh-success-emphasis);
+  --color-attention: var(--gh-attention);
+  --color-danger: var(--gh-danger);
+  --color-done: var(--gh-done);
+  --color-neutral-muted: var(--gh-neutral-muted);
+  --color-tab-active: var(--gh-tab-active);
+  --color-contrib-0: var(--gh-contrib-0);
+  --color-contrib-1: var(--gh-contrib-1);
+  --color-contrib-2: var(--gh-contrib-2);
+  --color-contrib-3: var(--gh-contrib-3);
+  --color-contrib-4: var(--gh-contrib-4);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* keep anchor targets clear of the sticky header + tab bar */
+    scroll-padding-top: 7rem;
+  }
+  body {
+    @apply bg-canvas text-fg-default font-sans antialiased;
+  }
+}

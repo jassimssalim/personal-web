@@ -25,13 +25,13 @@ export default function Particles() {
     resize()
     window.addEventListener('resize', resize, { passive: true })
 
-    const dots: Dot[] = Array.from({ length: 80 }, () => ({
+    const dots: Dot[] = Array.from({ length: 60 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      r: Math.random() * 2.0 + 0.8,
+      r: Math.random() * 1.6 + 0.6,
       vx: (Math.random() - 0.5) * 0.3,
       vy: -(Math.random() * 0.35 + 0.06),
-      opacity: Math.random() * 0.4 + 0.18,
+      opacity: Math.random() * 0.22 + 0.08,
     }))
 
     let raf: number
@@ -39,7 +39,7 @@ export default function Particles() {
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       const dark = document.documentElement.classList.contains('dark')
-      const rgb = dark ? '168,85,247' : '109,40,217'
+      const rgb = dark ? '88,166,255' : '9,105,218'
 
       dots.forEach((d, i) => {
         d.x += d.vx
@@ -61,8 +61,8 @@ export default function Particles() {
             ctx.beginPath()
             ctx.moveTo(d.x, d.y)
             ctx.lineTo(dots[j].x, dots[j].y)
-            ctx.strokeStyle = `rgba(${rgb},${0.22 * (1 - dist / 130)})`
-            ctx.lineWidth = 0.9
+            ctx.strokeStyle = `rgba(${rgb},${0.10 * (1 - dist / 130)})`
+            ctx.lineWidth = 0.7
             ctx.stroke()
           }
         }

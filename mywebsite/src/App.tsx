@@ -1,5 +1,5 @@
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
+import Sidebar from './components/Sidebar'
 import About from './components/About'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
@@ -14,20 +14,22 @@ function App() {
   const { dark, toggle } = useTheme()
 
   return (
-    <div className="relative bg-white dark:bg-slate-950 transition-colors duration-300 min-h-screen">
+    <div className="relative min-h-screen transition-colors duration-300">
       <Particles />
-      <div className="relative" style={{ zIndex: 1 }}>
+      <div className="relative z-[1]">
         <Navbar dark={dark} onToggle={toggle} />
-        <main>
-          <Hero />
-          <About />
-          <Experience />
-          <Projects />
-          <Skills />
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 dark:divide-slate-800">
-              <Certifications />
-              <Education />
+        <main className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            <Sidebar />
+            <div id="overview" className="flex-1 min-w-0 flex flex-col gap-6">
+              <About />
+              <Projects />
+              <Experience />
+              <Skills />
+              <div className="grid md:grid-cols-2 gap-4">
+                <Certifications />
+                <Education />
+              </div>
             </div>
           </div>
         </main>

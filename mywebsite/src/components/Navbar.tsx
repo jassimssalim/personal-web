@@ -1,108 +1,112 @@
-import { useState, useEffect } from 'react'
-import { Menu, X, Sun, Moon } from 'lucide-react'
-import { personal } from '../data'
+import { useState } from 'react'
+import {
+  Sun,
+  Moon,
+  BookOpen,
+  Briefcase,
+  FolderGit2,
+  FlaskConical,
+  BadgeCheck,
+  GraduationCap,
+  type LucideIcon,
+} from 'lucide-react'
+import { FaGithub } from 'react-icons/fa'
+import { personal, experiences, personalProjects, certifications, education } from '../data'
 
 interface NavbarProps {
   dark: boolean
   onToggle: () => void
 }
 
-const links = [
-  { href: '#about', label: 'About' },
-  { href: '#experience', label: 'Experience' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#certifications', label: 'Certifications' },
-  { href: '#education', label: 'Education' },
+interface Tab {
+  href: string
+  label: string
+  icon: LucideIcon
+  count?: number
+}
+
+const tabs: Tab[] = [
+  { href: '#overview', label: 'Overview', icon: BookOpen },
+  { href: '#experience', label: 'Experience', icon: Briefcase, count: experiences.length },
+  { href: '#projects', label: 'Projects', icon: FolderGit2, count: personalProjects.length },
+  { href: '#skills', label: 'Skills', icon: FlaskConical },
+  { href: '#certifications', label: 'Certifications', icon: BadgeCheck, count: certifications.length },
+  { href: '#education', label: 'Education', icon: GraduationCap, count: education.length },
 ]
 
 export default function Navbar({ dark, onToggle }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('#overview')
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const goTo = (href: string) => {
+    if (href === '#overview') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    }
+    window.history.pushState({}, '', '/')
+    setActive(href)
+  }
 
   return (
-    <nav className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-      scrolled
-        ? 'bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 py-3'
-        : 'py-5'
-    }`}>
-      <div className="max-w-5xl mx-auto px-6 flex items-center justify-between">
-        <a href="#hero" className="text-xl font-black tracking-tight text-slate-900 dark:text-white">
-          {personal.initials}<span className="text-violet-600 dark:text-violet-400">.</span>
+    <nav className="sticky top-0 z-50">
+      {/* Header row */}
+      <div className="bg-canvas-subtle border-b border-border-default h-14 px-4 sm:px-6 flex items-center justify-between">
+        <a
+          href="/"
+          onClick={e => { e.preventDefault(); goTo('#overview') }}
+          className="flex items-center gap-2 no-underline text-fg-default"
+        >
+          <FaGithub size={30} />
+          <span className="font-mono font-semibold text-sm">{personal.initials.toLowerCase()}</span>
+          <span className="text-fg-muted text-sm hidden sm:inline">/ portfolio</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-0.5 list-none">
-          {links.map(link => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all no-underline"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <button
-              onClick={onToggle}
-              aria-label="Toggle theme"
-              className="ml-1 p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
-            >
-              {dark ? <Sun size={17} /> : <Moon size={17} />}
-            </button>
-          </li>
-          <li>
-            <a
-              href={`mailto:${personal.email}`}
-              className="ml-2 px-4 py-2 text-sm font-semibold bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors no-underline"
-            >
-              Contact
-            </a>
-          </li>
-        </ul>
-
-        <div className="flex md:hidden items-center gap-2">
-          <button onClick={onToggle} aria-label="Toggle theme" className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-            {dark ? <Sun size={17} /> : <Moon size={17} />}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={onToggle}
+            aria-label="Toggle theme"
+            className="p-1.5 rounded-md border border-border-default text-fg-muted hover:bg-neutral-muted transition-colors"
+          >
+            {dark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <button onClick={() => setOpen(o => !o)} aria-label="Toggle menu" className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <a
+            href={`mailto:${personal.email}`}
+            className="px-3 py-1 text-sm font-medium bg-canvas-subtle border border-border-default rounded-md text-fg-default hover:bg-neutral-muted transition-colors no-underline"
+          >
+            Contact
+          </a>
         </div>
       </div>
 
-      {open && (
-        <div className="md:hidden bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
-          <ul className="max-w-5xl mx-auto px-6 py-3 flex flex-col gap-1 list-none">
-            {links.map(link => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block px-3 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-all no-underline"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-            <li>
+      {/* Tab bar */}
+      <div className="bg-canvas border-b border-border-default overflow-x-auto">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex">
+          {tabs.map(tab => {
+            const Icon = tab.icon
+            const isActive = active === tab.href
+            return (
               <a
-                href={`mailto:${personal.email}`}
-                onClick={() => setOpen(false)}
-                className="block px-3 py-2.5 text-sm font-semibold text-violet-600 dark:text-violet-400 hover:bg-violet-50 dark:hover:bg-violet-500/10 rounded-lg transition-all no-underline"
+                key={tab.href}
+                href={tab.href}
+                onClick={e => { e.preventDefault(); goTo(tab.href) }}
+                className={`flex items-center gap-2 px-3 py-2.5 text-sm whitespace-nowrap border-b-2 no-underline transition-colors ${
+                  isActive
+                    ? 'border-tab-active font-semibold text-fg-default'
+                    : 'border-transparent text-fg-muted hover:text-fg-default'
+                }`}
               >
-                Contact
+                <Icon size={16} className="text-fg-muted shrink-0" />
+                {tab.label}
+                {tab.count !== undefined && (
+                  <span className="bg-neutral-muted rounded-full px-2 py-0.5 text-xs font-medium text-fg-default">
+                    {tab.count}
+                  </span>
+                )}
               </a>
-            </li>
-          </ul>
+            )
+          })}
         </div>
-      )}
+      </div>
     </nav>
   )
 }
