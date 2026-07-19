@@ -3,16 +3,15 @@ const DAYS = 7
 // 5×7 pixel font for the letters used in the banner (space is 1 col wide)
 const glyphs: Record<string, string[]> = {
   H: ['#...#', '#...#', '#...#', '#####', '#...#', '#...#', '#...#'],
-  E: ['#####', '#....', '#....', '####.', '#....', '#....', '#####'],
-  L: ['#....', '#....', '#....', '#....', '#....', '#....', '#####'],
-  O: ['.###.', '#...#', '#...#', '#...#', '#...#', '#...#', '.###.'],
-  W: ['#...#', '#...#', '#...#', '#.#.#', '#.#.#', '#.#.#', '.#.#.'],
+  I: ['#####', '..#..', '..#..', '..#..', '..#..', '..#..', '#####'],
   R: ['####.', '#...#', '#...#', '####.', '#.#..', '#..#.', '#...#'],
-  D: ['####.', '#...#', '#...#', '#...#', '#...#', '#...#', '####.'],
+  E: ['#####', '#....', '#....', '####.', '#....', '#....', '#####'],
+  M: ['#...#', '##.##', '#.#.#', '#.#.#', '#...#', '#...#', '#...#'],
+  '!': ['#', '#', '#', '#', '#', '.', '#'],
   ' ': ['.', '.', '.', '.', '.', '.', '.'],
 }
 
-const WORD = 'HELLO WORLD'
+const WORD = 'HIRE ME !!'
 const PAD = 2
 
 // mulberry32 — deterministic PRNG so the decorative texture renders
@@ -58,14 +57,13 @@ export default function ContributionGraph() {
   return (
     <div className="rounded-md border border-border-default bg-canvas p-4">
       <div className="overflow-x-auto pb-1">
-        <div className="flex gap-[3px] w-max">
-          {cells.map((week, w) => (
-            <div key={w} className="flex flex-col gap-[3px]">
-              {week.map((level, d) => (
-                <span key={d} className={`w-[10px] h-[10px] rounded-[2px] ${levelClasses[level]}`} />
-              ))}
-            </div>
-          ))}
+        {/* fluid columns so the pattern always spans the full card width */}
+        <div className="grid grid-rows-7 grid-flow-col auto-cols-fr gap-[3px] min-w-[500px] max-w-[680px] mx-auto">
+          {cells.map((week, w) =>
+            week.map((level, d) => (
+              <span key={`${w}-${d}`} className={`aspect-square w-full rounded-[2px] ${levelClasses[level]}`} />
+            )),
+          )}
         </div>
       </div>
 
