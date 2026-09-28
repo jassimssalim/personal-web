@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Sun,
   Moon,
@@ -34,8 +34,37 @@ const tabs: Tab[] = [
   { href: '#education', label: 'Education', icon: GraduationCap, count: education.length },
 ]
 
+const sectionIds = tabs.filter(t => t.href !== '#overview').map(t => t.href.slice(1))
+const SCROLL_OFFSET = 120 // sticky header + tab bar height
+
 export default function Navbar({ dark, onToggle }: NavbarProps) {
   const [active, setActive] = useState('#overview')
+
+  useEffect(() => {
+    let ticking = false
+
+    const updateActive = () => {
+      ticking = false
+      let current = '#overview'
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (el && el.getBoundingClientRect().top - SCROLL_OFFSET <= 0) {
+          current = `#${id}`
+        }
+      }
+      setActive(current)
+    }
+
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(updateActive)
+    }
+
+    updateActive()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   const goTo = (href: string) => {
     if (href === '#overview') {

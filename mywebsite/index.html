@@ -2,7 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // applied before first paint to avoid a light-mode flash for dark-mode users
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+          if (dark) document.documentElement.classList.add('dark')
+        } catch (e) {}
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="canonical" href="https://jassim-dev.duckdns.org/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -10,7 +23,45 @@
     />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
-    <title>Application Developer</title>
+    <title>Jassim Mohammed Salim — Application Developer</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jassim Mohammed Salim — Portfolio" />
+    <meta property="og:title" content="Jassim Mohammed Salim — Application Developer" />
+    <meta
+      property="og:description"
+      content="Full Stack Developer with 5 years of experience delivering enterprise-grade applications across OutSystems, Spring Boot, React, and Next.js — with AI/LLM integration and AWS/Docker cloud experience."
+    />
+    <meta property="og:url" content="https://jassim-dev.duckdns.org/" />
+    <meta property="og:image" content="https://jassim-dev.duckdns.org/og-image.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jassim Mohammed Salim — Application Developer" />
+    <meta
+      name="twitter:description"
+      content="Full Stack Developer with 5 years of experience delivering enterprise-grade applications across OutSystems, Spring Boot, React, and Next.js."
+    />
+    <meta name="twitter:image" content="https://jassim-dev.duckdns.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jassim Mohammed Salim",
+        "jobTitle": "Application Developer",
+        "url": "https://jassim-dev.duckdns.org/",
+        "email": "mailto:jsmohammedsalim@gmail.com",
+        "sameAs": [
+          "https://github.com/jassimssalim",
+          "https://linkedin.com/in/jassimssalim"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bulacan",
+          "addressCountry": "PH"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

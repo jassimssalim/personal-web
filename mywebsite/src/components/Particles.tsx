@@ -18,16 +18,27 @@ export default function Particles() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    let width = window.innerWidth
+    let height = window.innerHeight
+
     const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      width = window.innerWidth
+      height = window.innerHeight
+      canvas.width = width * dpr
+      canvas.height = height * dpr
+      canvas.style.width = `${width}px`
+      canvas.style.height = `${height}px`
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
     resize()
     window.addEventListener('resize', resize, { passive: true })
 
     const dots: Dot[] = Array.from({ length: 60 }, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
+      x: Math.random() * width,
+      y: Math.random() * height,
       r: Math.random() * 1.6 + 0.6,
       vx: (Math.random() - 0.5) * 0.3,
       vy: -(Math.random() * 0.35 + 0.06),
@@ -37,16 +48,16 @@ export default function Particles() {
     let raf: number
 
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.clearRect(0, 0, width, height)
       const dark = document.documentElement.classList.contains('dark')
       const rgb = dark ? '88,166,255' : '9,105,218'
 
       dots.forEach((d, i) => {
         d.x += d.vx
         d.y += d.vy
-        if (d.y < -4) { d.y = canvas.height + 4; d.x = Math.random() * canvas.width }
-        if (d.x < -4) d.x = canvas.width + 4
-        if (d.x > canvas.width + 4) d.x = -4
+        if (d.y < -4) { d.y = height + 4; d.x = Math.random() * width }
+        if (d.x < -4) d.x = width + 4
+        if (d.x > width + 4) d.x = -4
 
         ctx.beginPath()
         ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2)

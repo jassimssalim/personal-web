@@ -39,7 +39,7 @@ export const experiences: ExperienceEntry[] = [
     type: 'Full Stack Developer',
     period: 'July 2024 – Present',
     location: 'Ortigas, Pasig City, Philippines',
-    current: false,
+    current: true,
     projects: [
       {
         name: 'Loan Application – Local Bank',

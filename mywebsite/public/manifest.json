@@ -1,0 +1,17 @@
+{
+  "name": "Jassim Mohammed Salim — Application Developer",
+  "short_name": "JSM Portfolio",
+  "description": "Full Stack Developer portfolio — OutSystems, Spring Boot, React & Next.js, AI/LLM integration, AWS & Docker.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
