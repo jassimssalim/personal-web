@@ -1,11 +1,11 @@
-import { BookOpen } from 'lucide-react'
+import { BookOpen, Zap, Layers, Bot, Cloud } from 'lucide-react'
 import { personal } from '../data'
 
 const highlights = [
-  { icon: '⚡', title: 'Full Stack', desc: 'Spring Boot + React/Next.js end-to-end' },
-  { icon: '🏗️', title: 'Architecture', desc: 'Scalable system design & best practices' },
-  { icon: '🤖', title: 'AI & LLMs', desc: 'LLM integration, agentic coding & AI-driven tools' },
-  { icon: '☁️', title: 'Cloud & DevOps', desc: 'AWS, Docker & enterprise infrastructure' },
+  { icon: Zap, title: 'Full Stack', desc: 'Spring Boot + React/Next.js end-to-end' },
+  { icon: Layers, title: 'Architecture', desc: 'Scalable system design & best practices' },
+  { icon: Bot, title: 'AI & LLMs', desc: 'LLM integration, agentic coding & AI-driven tools' },
+  { icon: Cloud, title: 'Cloud & DevOps', desc: 'AWS, Docker & enterprise infrastructure' },
 ]
 
 export default function About() {
@@ -36,7 +36,7 @@ export default function About() {
               className="rounded-md border border-border-default bg-canvas-subtle p-3"
             >
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-xl leading-none">{h.icon}</span>
+                <h.icon size={18} className="text-accent" />
                 <span className="text-sm font-semibold text-fg-default">{h.title}</span>
               </div>
               <div className="text-xs text-fg-muted leading-relaxed">{h.desc}</div>

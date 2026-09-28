@@ -43,11 +43,7 @@ export default function Sidebar() {
       </div>
 
       <div className="flex flex-col gap-4 mt-4">
-        {/* Availability status */}
-        <div className="border border-border-default rounded-md px-3 py-2 text-xs text-fg-default flex items-center gap-2 bg-canvas">
-          <span className="w-2 h-2 rounded-full bg-success animate-pulse shrink-0" />
-          Available for opportunities
-        </div>
+      
 
         {/* Bio */}
         <p className="text-sm text-fg-default leading-relaxed">

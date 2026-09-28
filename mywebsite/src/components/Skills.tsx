@@ -21,7 +21,7 @@ export default function Skills() {
             {expertiseAreas.map(area => (
               <div key={area.title} className="rounded-md border border-border-default bg-canvas p-4">
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-2xl leading-none">{area.icon}</span>
+                  <area.icon size={22} className="text-accent" />
                   <span className="bg-neutral-muted rounded-full px-2 py-0.5 text-xs font-medium text-fg-default whitespace-nowrap">
                     {area.years}y · {area.level}
                   </span>

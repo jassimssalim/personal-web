@@ -1,3 +1,5 @@
+import { Blocks, Server, Atom, Bot, Cloud, type LucideIcon } from 'lucide-react'
+
 export const personal = {
   name: 'Jassim Mohammed Salim',
   firstName: 'Jassim',
@@ -136,47 +138,67 @@ export const personalProjects: PersonalProject[] = [
       'Role-based access separates barangay staff permissions from public complainant views, ensuring data privacy and process integrity throughout the lifecycle.',
     ],
   },
+  {
+    name: 'Little Laps',
+    type: 'Mobile App',
+    tech: ['Expo', 'React Native', 'TypeScript'],
+    description:
+      'A newborn-to-12-months tracking app that logs feeding/nursing, diapers, and sleep, then scores each day against a built-in benchmark matrix of expected ranges per month — plus pediatric records like vaccination history and insights on how baby is trending month over month.',
+    bullets: [
+      'Benchmark matrix defines expected daily ranges per month (e.g. nursing/feeding counts) so logged activity is automatically graded against what is healthy for that age.',
+      'Tracks pediatric history — vaccinations and checkups — alongside daily logs, and surfaces insights comparing the current month against past months to flag whether baby is on track.',
+      'Built async/offline-first so entries save instantly on-device and sync in the background, keeping logging fast and reliable even with no connectivity.',
+      'Built with Expo and React Native for a smooth, cross-platform mobile experience on iOS and Android.',
+    ],
+  },
 ]
 
-export const expertiseAreas = [
+export const expertiseAreas: {
+  title: string
+  subtitle: string
+  years: number
+  level: 'Expert' | 'Proficient' | 'Intermediate'
+  icon: LucideIcon
+  color: string
+}[] = [
   {
     title: 'OutSystems Platform',
     subtitle: 'Traditional, Reactive & Mobile',
     years: 5,
-    level: 'Expert' as const,
-    icon: '🏢',
+    level: 'Expert',
+    icon: Blocks,
     color: 'violet',
   },
   {
     title: 'Java / Spring Boot',
     subtitle: 'REST APIs & Backend Architecture',
     years: 2,
-    level: 'Proficient' as const,
-    icon: '⚙️',
+    level: 'Proficient',
+    icon: Server,
     color: 'blue',
   },
   {
     title: 'React / Next.js',
     subtitle: 'Frontend & Full-Stack Web',
     years: 2,
-    level: 'Proficient' as const,
-    icon: '⚛️',
+    level: 'Proficient',
+    icon: Atom,
     color: 'cyan',
   },
   {
     title: 'AI & LLM Integration',
     subtitle: 'Prompt Engineering, Agentic Workflows & AI-driven Tools',
     years: 2,
-    level: 'Proficient' as const,
-    icon: '🤖',
+    level: 'Proficient',
+    icon: Bot,
     color: 'emerald',
   },
   {
     title: 'Cloud & Infrastructure',
     subtitle: 'AWS, Docker & Enterprise DevOps',
     years: 1,
-    level: 'Intermediate' as const,
-    icon: '☁️',
+    level: 'Intermediate',
+    icon: Cloud,
     color: 'sky',
   },
 ]
